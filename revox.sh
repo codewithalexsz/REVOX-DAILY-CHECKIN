@@ -19,7 +19,7 @@ else
 fi
 echo
 
-temp_node_file=$(mktemp /tmp/node_script.XXXXXX.js)
+temp_node_file=$(mktemp ./node_script.XXXXXX.js)
 
 cat << EOF > $temp_node_file
 const fs = require("fs");
@@ -28,6 +28,7 @@ const privateKeys = fs.readFileSync("privatekeys.txt", "utf8").trim().split("\\n
 const providerURL = "https://opBNB-mainnet-rpc.bnbchain.org";
 const provider = new ethers.providers.JsonRpcProvider(providerURL);
 const contractAddress = "0x7403cbc2586a3f9532fdfcaaf085e3fe69297f02";
+
 const transactionData = "0x1333db2e";
 const numberOfTransactions = 1;
 
@@ -68,4 +69,5 @@ NODE_PATH=$(npm root -g):$(pwd)/node_modules node $temp_node_file
 
 rm $temp_node_file
 echo
+echo_blue_bold "Follow @ZunXBT on X for more guides like this"
 echo
